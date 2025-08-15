@@ -1,1 +1,457 @@
+<!DOCTYPE html>
+<html lang="ko">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POTIS_SHOP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Orbitron:wght@400;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="game_shop_style.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <img src="C:\Users\User\Downloads\potisshopd.png" alt="Potis Shop" class="logo-image">
+                    <span class="logo-text">POTIS SHOP</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#home">홈</a></li>
+                    <li><a href="#items">상품</a></li>
+                    <li><a href="#prices">시세표</a></li>
+                    <li><a href="#contact">문의</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- 홈 섹션 -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h2>WELCOME TO POTIS SHOP</h2>
+                <p>안전하고 빠른 거래, 합리적인 가격</p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">100+</span>
+                        <span class="stat-label">거래 완료</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">24시간</span>
+                        <span class="stat-label">빠른 배송</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">안전 거래</span>
+                    </div>
+                </div>
+                <button class="cta-button" onclick="scrollToSection('items')">상품 보기</button>
+            </div>
+        </section>
+
+        <!-- 인기 게임 섹션 -->
+        <section id="games" class="games">
+            <div class="container">
+                <h2>지원 게임 및 기타</h2>
+                <div class="games-grid">
+                    <div class="game-card active" data-game="lol">
+                        <div class="game-icon">🏆</div>
+                        <h3>ROBLOX</h3>
+                        <p>입양 (펫, 차량, 거완글 등)</p>
+                    </div>
+                    <div class="game-card" data-game="wow">
+                        <div class="game-icon">⚔️</div>
+                        <h3>그림 커미션</h3>
+                        <p>SD, MD, LD</p>
+                    </div>
+                    <div class="game-card" data-game="fifa">
+                        <div class="game-icon">⚽</div>
+                        <h3>그림 저작권</h3>
+                        <p>저작인격권, 저작재산권</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 아이템 섹션 -->
+        <section id="items" class="items">
+            <div class="container">
+                <h2>상품 목록</h2>
+                <div class="filter-tabs">
+                    <button class="filter-btn active" data-filter="all">전체</button>
+                    <button class="filter-btn" data-filter="currency">상품</button>
+                    <button class="filter-btn" data-filter="items">서비스</button>
+                    <button class="filter-btn" data-filter="accounts">추가금</button>
+                </div>
+
+                <div class="items-grid">
+                    <!-- 입양하세요 상품 -->
+                    <div class="item-card" data-category="currency" data-game="lol">
+                        <div class="item-image">
+                            <img src="C:\Users\User\Downloads\1000023151.jpg" alt="사진 설명" width="100">
+                            <div class="item-badge">인기</div>
+                        </div>
+                        <div class="item-info">
+                            <h3>거완글 꾸미기</h3>
+                            <p class="item-game">거래 거완글</p>
+                            <div class="item-price">
+                                <span class="current-price">500원</span>
+                                <span class="original-price">800원</span>
+                            </div>
+                            <button class="buy-btn" onclick="orderItem('거완글', '500')">구매하기</button>
+                        </div>
+                    </div>
+
+                    <div class="item-card" data-category="items" data-game="lol">
+                        <div class="item-image">
+                            <img src="C:\Users\User\Downloads\1000023138.png" alt="사진 설명">
+                        </div>
+                        <div class="item-info">
+                            <h3>다람쥐차</h3>
+                            <p class="item-game">입양하세요</p>
+                            <div class="item-price">
+                                <span class="current-price">1000원</span>
+                            </div>
+                            <button class="buy-btn" onclick="orderItem('다람쥐차', '1000')">구매하기</button>
+                        </div>
+
+                    </div>
+
+                    <!-- 그림 커미션 -->
+                    <div class="item-card" data-category="currency" data-game="wow">
+                        <div class="item-image">
+                            <img src="C:\Users\User\Downloads\1000023153.jpg" alt="사진 설명" width="200">
+                            <div class="item-badge">할인</div>
+                        </div>
+                        <div class="item-info">
+                            <h3>SD 캐릭터</h3>
+                            <p class="item-game">그림 커미션</p>
+                            <div class="item-price">
+                                <span class="current-price">3,000원</span>
+                                <span class="original-price">5,000원</span>
+                            </div>
+                            <button class="buy-btn" onclick="orderItem('SD 캐릭터', '3000')">구매하기</button>
+                        </div>
+                    </div>
+
+                    <div class="item-card" data-category="boosting" data-game="wow">
+                        <div class="item-image">
+                            <img src="C:\Users\User\Downloads\LD캐릭터양식.png" alt="사진 설명" width="150" height="150">
+                        </div>
+                        <div class="item-info">
+                            <h3>LD 캐릭터</h3>
+                            <p class="item-game">그림 커미션</p>
+                            <div class="item-price">
+                                <span class="current-price">15,000원</span>
+                            </div>
+                            <button class="buy-btn" onclick="orderItem('LD 캐릭터', '15000')">구매하기</button>
+                        </div>
+                    </div>
+
+                    <!-- 그림 저작권 -->
+                    <div class="item-card" data-category="currency" data-game="fifa">
+                        <div class="item-image">
+                            <img src=alt="미출시" width="150" height="150">
+                        </div>
+                        <div class="item-info">
+                            <h3>미출시</h3>
+                            <p class="item-game">그림 저작권</p>
+                            <div class="item-price">
+                                <span class="current-price">0원</span>
+                            </div>
+                            <button class="buy-btn" onclick="orderItem('미출시', '0')">구매하기</button>
+                        </div>
+                    </div>
+
+                    <!-- 추가 입양 -->
+                    <div class="item-card" data-category="currency" data-game="lol">
+                        <div class="item-image">
+                            <img src="C:\Users\User\Downloads\APORME2.jpg" alt="사진 설명" width="140">
+                        </div>
+                        <div class="item-info">
+                            <h3>날물 (수량 4개)</h3>
+                            <p class="item-game">입양하세요</p>
+                            <div class="item-price">
+                                <span class="current-price">1000원</span>
+                            </div>
+                            <button class="buy-btn" onclick="orderItem('날물', '1000')">구매하기</button>
+                        </div>
+                    </div>
+
+                    <div class="item-card" data-category="items" data-game="lol">
+                        <div class="item-image">
+                            <img src="C:\Users\User\Downloads\1000023148.jpg" alt="사진 설명" width="140">
+                        </div>
+                        <div class="item-info">
+                            <h3>메가 날타 쥐</h3>
+                            <p class="item-game">입양하세요</p>
+                            <div class="item-price">
+                                <span class="current-price">1000원</span>
+                            </div>
+                            <button class="buy-btn" onclick="orderItem('메가 날타쥐', '1000')">구매하기</button>
+                        </div>
+                    </div>
+
+                    <div class="item-card" data-category="accounts" data-game="lol">
+                        <div class="item-image">
+                            <img src="C:\Users\User\Downloads\스크린샷 2025-08-16 011815.png" alt="사진 설명" width="140">
+                        </div>
+                        <div class="item-info">
+                            <h3>타는 방울뱀</h3>
+                            <p class="item-game">입양하세요</p>
+                            <div class="item-price">
+                                <span class="current-price">1000원</span>
+                            </div>
+                            <button class="buy-btn" onclick="orderItem('타는 방울뱀', '1000')">구매하기</button>
+                        </div>
+                    </div>
+
+                    <!-- 추가 그림 커미션 -->
+                    <div class="item-card" data-category="currency" data-game="wow">
+                        <div class="item-image">
+                            <<img src="C:\Users\User\Downloads\KakaoTalk_20250816_015549452.jpg" alt="사진 설명" width="150"
+                                height="150">
+                                <div class="item-badge">신상</div>
+                        </div>
+                        <div class="item-info">
+                            <h3>낙서 그림</h3>
+                            <p class="item-game">그림 커미션</p>
+                            <div class="item-price">
+                                <span class="current-price">500원</span>
+                            </div>
+                            <button class="buy-btn" onclick="orderItem('낙서 그림', '500')">구매하기</button>
+                        </div>
+                    </div>
+
+                    <div class="item-card" data-category="items" data-game="wow">
+                        <div class="item-image">
+                            <img src= alt="미출시" width="150" height="150">
+                        </div>
+                        <div class="item-info">
+                            <h3>미출시</h3>
+                            <p class="item-game">그림 커미션</p>
+                            <div class="item-price">
+                                <span class="current-price">0원</span>
+                            </div>
+                            <button class="buy-btn" onclick="orderItem('미출시', '0')">구매하기</button>
+                        </div>
+                    </div>
+
+                    <div class="item-card" data-category="boosting" data-game="wow">
+                        <div class="item-image">
+                            <img src=alt="미출시" width="150" height="150">
+                        </div>
+                        <div class="item-info">
+                            <h3>미출시</h3>
+                            <p class="item-game">그림 커미션</p>
+                            <div class="item-price">
+                                <span class="current-price">0원</span>
+                            </div>
+                            <button class="buy-btn" onclick="orderItem('미출시', '0')">구매하기</button>
+                        </div>
+                    </div>
+
+                    <!-- 추가 그림 저작권 -->
+                    <div class="item-card" data-category="currency" data-game="fifa">
+                        <div class="item-image">
+                            <img src=alt="미출시" width="150" height="150">
+                        </div>
+                        <div class="item-info">
+                            <h3>미출시</h3>
+                            <p class="item-game">그림 저작권</p>
+                            <div class="item-price">
+                                <span class="current-price">0원</span>
+                            </div>
+                            <button class="buy-btn" onclick="orderItem('미출시', '0')">구매하기</button>
+                        </div>
+                    </div>
+                    <!-- 페이지네이션 -->
+                    <div class="pagination">
+                        <button class="pagination-btn prev-btn" onclick="changePage(-1)" disabled>
+                            <span>‹</span> 이전
+                        </button>
+                        <div class="page-numbers">
+                            <button class="page-btn active" onclick="goToPage(1)">1</button>
+                            <button class="page-btn" onclick="goToPage(2)">2</button>
+                            <button class="page-btn" onclick="goToPage(3)">3</button>
+                            <button class="page-btn" onclick="goToPage(4)">4</button>
+                            <button class="page-btn" onclick="goToPage(5)">5</button>
+                        </div>
+                        <button class="pagination-btn next-btn" onclick="changePage(1)">
+                            다음 <span>›</span>
+                        </button>
+                    </div>
+
+                    <!-- 페이지 정보 -->
+                    <div class="page-info">
+                        <p>총 <span id="total-items">0</span>개 상품 중 <span id="current-range">1-12</span>개 표시</p>
+                    </div>
+                </div>
+        </section>
+
+        <!-- 시세표 섹션 -->
+        <section id="prices" class="prices">
+            <div class="container">
+                <h2>실시간 시세표</h2>
+                <div class="price-tables">
+                    <div class="price-table">
+                        <h3>입양하세요</h3>
+                        <div class="table-responsive">
+                            <table>
+                                <img src="C:\Users\User\Downloads\입양시세표1.jpg" alt="미출시" width="400" height="300">
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="price-table">
+                        <h3>그림 커미션</h3>
+                        <div class="table-responsive">
+                            <table>
+                                <img src="C:\Users\User\Downloads\스크린샷 2025-08-16 024919.png" alt="미출시" width="380" height="300">
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="price-table">
+                        <h3>그림 저작권</h3>
+                        <div class="table-responsive">
+                            <table>
+                                <img src= alt="미출시" width="400" height="300">
+                            </table>
+                        </div>
+                    </div>
+
+
+                    <div class="price-update">
+                        <p>⏰ 마지막 업데이트: <span id="last-update"></span></p>
+                        <button onclick="updatePrices()" class="update-btn">시세 새로고침</button>
+                    </div>
+                </div>
+        </section>
+
+        <!-- 문의 섹션 -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2>문의하기</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3>📞 연락처 정보</h3>
+                        <div class="contact-item">
+                            <span class="contact-icon">📧</span>
+                            <div>
+                                <strong>이메일</strong>
+                                <p>jeomwanglee0118@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">💬</span>
+                            <div>
+                                <strong>카카오톡</strong>
+                                <p>갠톡으로 주세요!</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">🕐</span>
+                            <div>
+                                <strong>운영시간</strong>
+                                <p>평일 21:50 ~ 01:30 <br>주말 9:30 - 23:55</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">⚡</span>
+                            <div>
+                                <strong>평균 응답시간</strong>
+                                <p>30분 이내</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form class="contact-form" id="contactForm">
+                        <h3>📝 문의 보내기</h3>
+                        <input type="text" name="name" placeholder="이름" required>
+                        <input type="email" name="email" placeholder="이메일" required>
+                        <select name="inquiry_type" required>
+                            <option value="">문의 유형 선택</option>
+                            <option value="purchase">구매 문의</option>
+                            <option value="price">가격 문의</option>
+                            <option value="delivery">확인 문의</option>
+                            <option value="account">보안 문의</option>
+                            <option value="other">기타</option>
+                        </select>
+                        <input type="text" name="game" placeholder="게임명 (선택사항)">
+                        <textarea name="message" placeholder="문의 내용을 자세히 적어주세요" rows="5" required></textarea>
+                        <button type="submit">📧 이메일로 문의 보내기</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- 안전거래 안내 -->
+        <section class="safety">
+            <div class="container">
+                <h2>🛡️ 안전거래 보장</h2>
+                <div class="safety-features">
+                    <div class="safety-item">
+                        <div class="safety-icon">🔒</div>
+                        <h3>보안 입금</h3>
+                        <p>암호화로 안전한 입금</p>
+                    </div>
+                    <div class="safety-item">
+                        <div class="safety-icon">✅</div>
+                        <h3>사기 보장</h3>
+                        <p>100% 보상금 기여</p>
+                    </div>
+                    <div class="safety-item">
+                        <div class="safety-icon">🚀</div>
+                        <h3>빠른 확인</h3>
+                        <p>평균 30분 이내 확인</p>
+                    </div>
+                    <div class="safety-item">
+                        <div class="safety-icon">💯</div>
+                        <h3>환불 보장</h3>
+                        <p>문제 발생시 100% 환불</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>POTIS SHOP</h3>
+                    <p>안전하고 명확한 거래의 새로운 기준</p>
+                </div>
+                <div class="footer-section">
+                    <h4>고객센터 (갠톡)</h4>
+                    <p>📧 jeomwanglee0118@gmail.com</p>
+                    <p>🕐 평일 09:00 - 18:00</p>
+                </div>
+                <div class="footer-section">
+                    <h4>이용약관</h4>
+                    <p><a href="#">서비스 이용약관</a></p>
+                    <p><a href="#">개인정보처리방침</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 POTIS & CORN Shop. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="game_shop_script.js"></script>
+</body>
+
+</html>
